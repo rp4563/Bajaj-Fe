@@ -20,7 +20,7 @@ const DataInput = ({ dataFormat, data, setData, isValidData }) => (
             rows={4}
             value={data}
             onChange={(e) => setData(e.target.value)}
-            className={mt-1 block w-full p-3 border rounded-md ${isValidData ? 'border-gray-300' : 'border-red-500'} focus:outline-none focus:ring-2 focus:ring-blue-500}
+            className={`mt-1 block w-full p-3 border rounded-md ${isValidData ? 'border-gray-300' : 'border-red-500'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
             placeholder={
                 dataFormat === 'comma'
                     ? 'e.g. M,1,334,4'
@@ -55,7 +55,7 @@ const FileInput = ({ setFileBase64 }) => {
             <label className="block text-sm font-medium text-gray-700">Upload File</label>
             <input
                 type="file"
-                accept="image/*"
+                accept="*/*"  // Accept any type of file
                 onChange={handleFileChange}
                 className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
             />
@@ -185,14 +185,14 @@ const ApiForm = () => {
                         <button
                             type="button"
                             onClick={() => setDataFormat('comma')}
-                            className={px-4 py-2 rounded-md ${dataFormat === 'comma' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}}
+                            className={`px-4 py-2 rounded-md ${dataFormat === 'comma' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}`}
                         >
                             Comma-Separated
                         </button>
                         <button
                             type="button"
                             onClick={() => setDataFormat('json')}
-                            className={px-4 py-2 rounded-md ${dataFormat === 'json' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}}
+                            className={`px-4 py-2 rounded-md ${dataFormat === 'json' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'}`}
                         >
                             JSON
                         </button>
@@ -226,7 +226,7 @@ const ApiForm = () => {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className={px-4 py-2 w-full rounded-md ${isValidData ? 'bg-blue-600 text-white' : 'bg-gray-400 text-gray-700'} transition duration-200 ease-in-out hover:${isValidData ? 'bg-blue-700' : 'bg-gray-500'}}
+                    className={`px-4 py-2 w-full rounded-md ${isValidData ? 'bg-blue-600 text-white' : 'bg-gray-400 text-gray-700'} transition duration-200 ease-in-out hover:${isValidData ? 'bg-blue-700' : 'bg-gray-500'}`}
                     disabled={!isValidData || isSubmitting}
                 >
                     {isSubmitting ? 'Submitting...' : 'Submit'}
